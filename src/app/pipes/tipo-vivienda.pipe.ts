@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'alquiler'
+  name: 'tipoVivienda'
 })
-export class AlquilerPipe implements PipeTransform {
+export class TipoViviendaPipe implements PipeTransform {
 
-  transform(value: any, alquiler: boolean, todas?: boolean): any {
+  transform(value: any, alquiler: boolean, todas: boolean,venta: boolean): any {
 
     if(todas){
       return value.filter(el => el);
@@ -14,7 +14,7 @@ export class AlquilerPipe implements PipeTransform {
     else if(alquiler){
       return value.filter(el => el.alquiler === true);
     
-    }else{
+    }else if(venta){
       return value.filter(el => el.alquiler === false);
     }
   }

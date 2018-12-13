@@ -9,7 +9,7 @@ import { BackofficeGuard } from './guards/backoffice.guard';
 const routes: Routes = [
   {path: 'inicio', component: ListadoComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'privado', component: BackofficeComponent},
+  {path: 'privado', component: BackofficeComponent, canActivate:[BackofficeGuard]},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: Page404Component}
 ];

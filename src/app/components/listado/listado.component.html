@@ -5,14 +5,20 @@
     <div class="col-4">
       <h2>Listado de casas</h2>
 
+      <div>
+        <p>Filtrar por precio</p>
+        <span>Min </span><input class="inputPrecio" [(ngModel)]="minPrecio" type="number" value="100" min="1" max="100000000" />
+        <span>Max </span><input class="inputPrecio" [(ngModel)]="maxPrecio" type="number" value="50000000" min="1" max="100000000" />
+      </div>
+
       <div class="form-check-inline">
         <label for="alquiler" class="form-check-label">
-          <input type="radio" (click)="filtrar()" id="alquiler" class="form-check-input" name="optradio">Alquiler
+          <input type="radio" (click)="filtrarAlquiler()" id="alquiler" class="form-check-input" name="optradio">Alquiler
         </label>
       </div>
       <div class="form-check-inline">
         <label for="venta" class="form-check-label">
-          <input type="radio" (click)="filtrar()" id="venta" class="form-check-input" name="optradio">Venta
+          <input type="radio" (click)="filtrarVenta()" id="venta" class="form-check-input" name="optradio">Venta
         </label>
       </div>
       <div class="form-check-inline">
@@ -22,7 +28,7 @@
       </div>
 
       <ul class="list-group">
-        <li *ngFor="let c of casas | alquiler: alquiler:todas" class="list-group-item" (click)="cambiarCasa(c)" [class.activo]="c === casa">
+        <li *ngFor="let c of casas | tipoVivienda: alquiler:todas:venta | precio: minPrecio:maxPrecio" class="list-group-item" (click)="cambiarCasa(c)" [class.activo]="c === casa">
           <span><b>{{c.nombre}}</b></span>
           <span class="float-right">{{c.precio}} &euro;</span>
           <span class="d-block"><i>{{c.direccion}}</i></span>

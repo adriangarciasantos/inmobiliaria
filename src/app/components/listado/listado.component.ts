@@ -12,16 +12,20 @@ export class ListadoComponent implements OnInit {
   private _casas: Casa[];
   private _casa: Casa;
   private _alquiler: boolean;
+  private _venta: boolean;
   private _todas: boolean;
-  private _textoFiltro: string;
+  private _minPrecio: number;
+  private _maxPrecio: number;
 
   constructor(public casaService: CasaService) { 
     console.trace('ListadoComponent constructor');
     this.casas = [];
     this.casa = new Casa();
-    this.alquiler = true;
+    this.alquiler = false;
+    this.venta = false;
     this.todas = true;
-    this.textoFiltro = 'Alquiler';
+    this.minPrecio = 1;
+    this.maxPrecio = 100000000;
     
   }
 
@@ -40,16 +44,29 @@ export class ListadoComponent implements OnInit {
     this.casa = c;
   }
 
-  filtrar(){
-    console.trace('ComparadorComponent filtrar ' + this.alquiler);
+  filtrarAlquiler(){
+    console.trace('ComparadorComponent filtrarAlquiler ' + this.alquiler);
     this.todas = false;
-    this.alquiler = !this.alquiler;
-    this.textoFiltro = (this.alquiler)? 'Alquiler' : 'Venta';
+    this.alquiler = true;
+    this.venta = false;
+  }
+
+  filtrarVenta(){
+    console.trace('ComparadorComponent filtrarVenta ' + this.venta);
+    this.todas = false;
+    this.alquiler = false;
+    this.venta = true;
   }
 
   filtrarTodas(){
     console.trace('ComparadorComponent filtrarTodas ' + this.todas);
     this.todas = true;
+    this.alquiler = false;
+    this.venta = false;
+  }
+
+  filtrarPrecio(){
+
   }
   
   public get casas(): Casa[] {
@@ -80,11 +97,25 @@ export class ListadoComponent implements OnInit {
     this._todas = value;
   }
   
-  public get textoFiltro(): string {
-    return this._textoFiltro;
+  public get minPrecio(): number {
+    return this._minPrecio;
   }
-  public set textoFiltro(value: string) {
-    this._textoFiltro = value;
+  public set minPrecio(value: number) {
+    this._minPrecio = value;
+  }
+  
+  public get maxPrecio(): number {
+    return this._maxPrecio;
+  }
+  public set maxPrecio(value: number) {
+    this._maxPrecio = value;
+  }
+  
+  public get venta(): boolean {
+    return this._venta;
+  }
+  public set venta(value: boolean) {
+    this._venta = value;
   }
 
 }

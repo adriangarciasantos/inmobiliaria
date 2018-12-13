@@ -12,7 +12,17 @@ import { ListadoComponent } from './components/listado/listado.component';
 import { Page404Component } from './components/page404/page404.component';
 import { LoginComponent } from './components/login/login.component';
 import { BackofficeComponent } from './components/backoffice/backoffice.component';
-import { AlquilerPipe } from './pipes/alquiler.pipe';
+
+//Providers
+import { CasaService } from './providers/casa.service';
+import { LoginService } from './providers/login.service';
+
+//Pipes
+import { PrecioPipe } from './pipes/precio.pipe';
+import { TipoViviendaPipe } from './pipes/tipo-vivienda.pipe';
+
+//Guards
+import { BackofficeGuard } from './guards/backoffice.guard';
 
 @NgModule({
   declarations: [
@@ -22,7 +32,8 @@ import { AlquilerPipe } from './pipes/alquiler.pipe';
     Page404Component,
     LoginComponent,
     BackofficeComponent,
-    AlquilerPipe
+    PrecioPipe,
+    TipoViviendaPipe
   ],
   imports: [
     BrowserModule,
@@ -31,7 +42,11 @@ import { AlquilerPipe } from './pipes/alquiler.pipe';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    CasaService,
+    LoginService,
+    BackofficeGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
