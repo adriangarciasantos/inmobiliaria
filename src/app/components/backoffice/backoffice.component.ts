@@ -4,7 +4,6 @@ import { FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CasaService } from 'src/app/providers/casa.service';
 import { ActivatedRoute } from '@angular/router';
 import { Servicio } from 'src/app/model/servicio';
-import { stringify } from '@angular/core/src/render3/util';
 
 @Component({
   selector: 'app-backoffice',
@@ -145,7 +144,7 @@ export class BackofficeComponent implements OnInit {
     
     this.casaService.crear(casa).subscribe(data =>{
       console.debug('data %o', data);
-      this.msg = `${casa.nombre} creada correctamente`;
+      this.msg = `Casa creada correctamente`;
     });
 
     console.debug('Llamar provider pasando la casa %o', casa);

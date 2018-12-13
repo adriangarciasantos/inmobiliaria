@@ -7,7 +7,12 @@
         font-size:1.5em;
     }
 
-    .btn-zona-privada{
+    .logeado{
+        position: absolute;
+        right:143px;
+    }
+
+    .no-logeado{
         position: absolute;
         right:10px;
     }
@@ -21,6 +26,21 @@
         background-color: #fff;
         color: #528B8B;
         border-color: #528B8B;
+    }
+
+    .btn-cerrar-sesion{
+        position: absolute;
+        right:10px;    
+        top: 8px;
+        height: 42px;
+        background-color: #333;
+        color:#fff;
+    }
+
+    .btn-cerrar-sesion:hover{
+        background-color: #fff;
+        color:#333;
+        border-color: #333;
     }
 
 }
