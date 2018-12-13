@@ -1,0 +1,28 @@
+<div class="card" style="width: 28rem;">
+  <div class="card-header">
+    <img src="{{casa.foto}}" alt="imagen-casa" />
+    <h5 class="mt-3">{{(casa.alquiler)? 'Alquiler' : 'Venta'}}</h5>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{casa.nombre}}</h5>
+    <div class="justify-content-between">
+      <span>Precio: {{casa.precio}} &euro;</span>
+      <span class="float-right">Habitaciones: {{casa.habitaciones}}</span>
+    </div>
+    <p class="mb-0 mt-3">Dirección</p>
+    <span>{{casa.direccion}}</span>
+  </div>
+
+  <div class="card-footer">
+    <p>Servicios:</p>
+    <ul *ngFor="let s of casa.servicios">
+      <li *ngIf="s.disponible"  class="d-block">{{s.nombre}}</li>
+    </ul>
+
+    <!-- <span *ngFor="let s of casa.servicios">{{s.nombre}} - {{s.disponible}}</span>
+ -->
+  </div>
+
+</div>
+

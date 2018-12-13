@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Inicie sesión para acceder a la zona privada</h2>
+
+  <p *ngIf="msg != ''" class="text-danger loginMal"><b>{{msg}}</b></p>
+
+  <form [formGroup]="formulario" (ngSubmit)="sumitar()" novalidate>
+
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" formControlName="nombre" class="form-control {{(formulario.controls.nombre.valid)? 'valido' : 'invalido'}}" id="nombre" placeholder="Min 2 y max 25" />
+      <small *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="form-text text-danger">Mínimo 2 y máximo 25 caracteres</small>
+      <small *ngIf="formulario.controls.nombre.valid && formulario.controls.nombre.touched" class="form-text text-success">Correcto</small>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" formControlName="password" class="form-control {{(formulario.controls.password.valid)? 'valido' : 'invalido'}}" id="password" placeholder="Min 5 y max 25" />
+      <small *ngIf="formulario.controls.password.invalid && formulario.controls.password.touched" class="form-text text-danger">Mínimo 5 y máximo 25 caracteres</small>
+      <small *ngIf="formulario.controls.password.valid && formulario.controls.password.touched" class="form-text text-success">Correcto</small>
+    </div>
+
+    <input type="submit" class="btn btn-login btn-block" value="Acceder" [disabled]="formulario.status === 'INVALID'" />
+
+  </form>
+
+</div>

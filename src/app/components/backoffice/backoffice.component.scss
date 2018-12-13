@@ -1,0 +1,43 @@
+.imgDestacada{
+    width:125px;
+    height:125px;
+}
+
+.btn-nuevo-servicio{
+    background-color: #528B8B;
+    color:#fff;
+}
+
+.btn-nuevo-servicio:hover{
+    background-color: #fff;
+    color:#528B8B !important;
+    border-color: #528B8B;
+}
+
+.divServicio{
+
+    position: relative;
+
+    .borrarServicio{
+        position: absolute;
+        right:10px;
+        top:10px;
+    }
+
+    .borrarServicio:hover{
+        cursor:pointer;
+    }
+}
+
+
+
+.btn-crear{
+    background-color: #528B8B;
+    color:#fff;
+}
+
+.btn-crear:hover{
+    background-color: #fff;
+    color:#528B8B !important;
+    border-color: #528B8B;
+}

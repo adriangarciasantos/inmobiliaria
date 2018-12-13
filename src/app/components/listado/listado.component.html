@@ -1,0 +1,38 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-4">
+      <h2>Listado de casas</h2>
+
+      <div class="form-check-inline">
+        <label for="alquiler" class="form-check-label">
+          <input type="radio" (click)="filtrar()" id="alquiler" class="form-check-input" name="optradio">Alquiler
+        </label>
+      </div>
+      <div class="form-check-inline">
+        <label for="venta" class="form-check-label">
+          <input type="radio" (click)="filtrar()" id="venta" class="form-check-input" name="optradio">Venta
+        </label>
+      </div>
+      <div class="form-check-inline">
+        <label for="todas" class="form-check-label">
+          <input type="radio" (click)="filtrarTodas()" id="todas" checked class="form-check-input" name="optradio">Todas
+        </label>
+      </div>
+
+      <ul class="list-group">
+        <li *ngFor="let c of casas | alquiler: alquiler:todas" class="list-group-item" (click)="cambiarCasa(c)" [class.activo]="c === casa">
+          <span><b>{{c.nombre}}</b></span>
+          <span class="float-right">{{c.precio}} &euro;</span>
+          <span class="d-block"><i>{{c.direccion}}</i></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-8">
+      <app-detalle [_casa]="casa"></app-detalle>
+    </div>
+
+  </div>
+</div>
